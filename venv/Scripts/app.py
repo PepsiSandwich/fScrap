@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, jsonify, render_template
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -6,6 +6,8 @@ import json
 app = Flask(__name__)
 
 @app.route('/')
+def home():
+    return render_template("index.html")
 def scrape():
     url = "https://letfix.ru/manufacturers/sormat/anchors_sormat/anchor-bolts.html"
     headers = {
